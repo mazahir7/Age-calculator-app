@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
+:root {
+	--purple: hsl(259, 100%, 65%);
+	--red: hsl(0, 100%, 67%);
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	/* changes the 1REM from 16px to 10px */
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+
+	background-color: hsl(0, 0%, 94%);
+}
+
+.container {
+	background-color: hsl(0, 0%, 100%);
+	padding: 4rem 4rem 3rem 4rem;
+
+	border-radius: 14px;
+	border-bottom-right-radius: 148px;
+	/* width: 45%; */
+	/* height: 69%; */
+}
+
+/* AGE INPUT */
+
+.age-input {
+	display: flex;
+	/* justify-content: space-between; */
+	align-items: center;
+	color: hsl(0, 1%, 44%);
+
+	margin-right: 10.5rem;
+}
+
+.age-input .input-container {
+	display: flex;
+	flex-direction: column;
+	text-transform: uppercase;
+	font-weight: 400;
+	letter-spacing: 2px;
+	font-size: 10px;
+}
+
+.input-container input {
+	cursor: pointer;
+	width: 11.5rem;
+	height: 5rem;
+	padding: 16px;
+	margin-right: 24px;
+	border-radius: 6px;
+	border: hsl(0, 0%, 86%) solid 1px;
+	font-size: 24px;
+	font-weight: 800;
+	text-transform: uppercase;
+	font-family: inherit;
+	font-weight: bold;
+}
+
+.age-input.error .input-container input {
+	border: var(--red) solid 1px;
+}
+
+.input-container label {
+	margin-bottom: 5px;
+}
+
+.input-container input:focus,
+.input-container input:focus-visible {
+	border: var(--purple) solid 1px;
+	outline: none;
+	caret-color: var(--purple);
+}
+
+/* SHOWING ERROR */
+
+.input-container .date-error {
+	padding-top: 5px;
+	text-transform: none;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 10px;
+	letter-spacing: 0;
+	color: var(--red);
+	opacity: 0;
+}
+
+/* DIVIDER CONTAINER */
+
+.divider-container {
+	display: flex;
+	align-items: center;
+	/* justify-content: space-between; */
+}
+
+.line {
+	width: 100%;
+	height: 1px;
+	background-color: hsl(0, 0%, 86%);
+}
+
+.btn {
+	cursor: pointer;
+	width: 65px;
+	height: 65px;
+	background-color: var(--purple);
+	padding: 16px;
+	border-radius: 50%;
+	border: none;
+	/* margin-right: 3.8rem; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.3s;
+
+	/* setting Z-INDEX because the display-container is covering the button element */
+	z-index: 99;
+}
+
+.btn:hover,
+.btn:active {
+	background-color: hsl(0, 0%, 8%);
+}
+
+.btn:focus,
+.btn:focus-visible {
+	outline: none;
+}
+
+.btn g {
+	stroke: hsl(0, 0%, 86%);
+	stroke-width: 3;
+}
+
+/* DISPLAY CONTAINER */
+
+.display-container {
+	font-size: 72px;
+	font-style: italic;
+	font-weight: 800;
+
+	display: flex;
+	flex-direction: column;
+
+	margin-top: -1rem;
+}
+
+.months {
+	margin-top: -3rem;
+}
+
+.days {
+	margin-top: -3rem;
+}
+
+.display-container span {
+	color: var(--purple);
+	margin-right: -8px;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+/* 640px centering the button in mobile view
+*/
+@media (max-width: 40em) {
+	.container {
+		padding: 4rem 2rem 3rem;
+		border-bottom-right-radius: 108px;
+	}
+
+	.age-input {
+		margin-right: 0;
+	}
+
+	.input-container label {
+		margin-bottom: 0;
+	}
+
+	.input-container input {
+		width: 8.2rem;
+		margin-right: 16px;
+		font-size: 18px;
+	}
+
+	.input-container .year {
+		margin: 0;
+	}
+
+	.divider-container {
+		position: relative;
+
+		margin: 6rem 0 5rem;
+	}
+
+	.btn {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.display-container {
+		font-size: 48px;
+		margin-top: 0;
+	}
+
+	.months {
+		margin-top: -2rem;
+	}
+
+	.days {
+		margin-top: -2rem;
+	}
+
+	.display-container span {
+		margin-right: -4px;
+	}
+}
+
+/* 336px centering the button in mobile view
+*/
+@media (max-width: 21em) {
+	.container {
+		padding: 4rem 2rem 3rem;
+		border-bottom-right-radius: 98px;
+	}
+
+	.input-container input {
+		width: 7.2rem;
+		margin-right: 8px;
+		font-size: 14px;
+	}
+
+	.display-container {
+		font-size: 36px;
+	}
+}
